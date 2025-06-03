@@ -130,3 +130,21 @@
     #nextBtn {
         right: -150px;
     }
+@media (max-width: 768px) {
+  .myCarousel-container {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 4; /* ou ajuste para algo como 4/5 se quiser mais quadrado */
+    margin: 80px 0 0 0;
+    border-radius: 0;
+  }
+
+  .myCarousel-image {
+    object-fit: contain;
+  }
+
+  #prevBtn,
+  #nextBtn {
+    display: none; /* opcional: esconde botões em telas pequenas */
+  }
+}
