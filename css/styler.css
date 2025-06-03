@@ -1,0 +1,132 @@
+    body {
+        margin: 0;
+        overflow: hidden;
+        background-color: #F8FBFF;
+        /* fundo escuro para contraste */
+    }
+
+    .floating-image {
+        position: absolute;
+        width: 170px;
+        height: 100px;
+        pointer-events: none;
+        animation: floatUp 12s linear forwards;
+    }
+
+    @keyframes floatUp {
+        from {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        to {
+            transform: translateY(-300px);
+            opacity: 0;
+        }
+    }
+
+    /*corações noreader*/
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 80px;
+        overflow: hidden;
+        background-color: transparent;
+        z-index: 1000;
+    }
+
+    .moving-img {
+        position: absolute;
+        top: 10px;
+        height: 60px;
+        animation: slideRight 10s linear forwards;
+    }
+
+    @keyframes slideRight {
+        0% {
+            left: -200px;
+        }
+
+        100% {
+            left: 100%;
+        }
+    }
+
+    /*carroceu*/
+    .myCarousel-container {
+        position: relative;
+        width: 1200px;
+        height: 1000px;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.884);
+        background: #fff;
+        margin: 90px auto;
+    }
+
+    .myCarousel-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: opacity 0.5s ease;
+        opacity: 0;
+    }
+
+    .myCarousel-image.active {
+        display: block;
+        opacity: 1;
+        position: relative;
+    }
+
+    .myCarousel-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0, 0, 0, 0.5);
+        border: none;
+        color: white;
+        font-size: 2rem;
+        padding: 10px 15px;
+        cursor: pointer;
+        border-radius: 50%;
+        user-select: none;
+        transition: background 0.3s;
+        z-index: 10;
+    }
+
+    .myCarousel-button:hover {
+        background: rgba(0, 0, 0, 0.8);
+    }
+
+    .myCarousel-button.prev {
+        left: 10px;
+    }
+
+    .myCarousel-button.next {
+        right: 10px;
+    }
+
+    .nav-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 400px;
+        /* ajuste conforme a seta */
+        height: auto;
+        cursor: pointer;
+        z-index: 10;
+    }
+
+    #prevBtn {
+        left: -150px;
+    }
+
+    #nextBtn {
+        right: -150px;
+    }
