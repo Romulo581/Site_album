@@ -1,13 +1,13 @@
   // Caminhos relativos às imagens da pasta "imagens/"
   const imageSources = [
-    '../img/corações/img1.png',
-    '../img/corações/img2.png',
-    '../img/corações/img3.png',
-    '../img/corações/img4.png',
-    '../img/corações/img5.png',
-    '../img/corações/img6.png',
-    '../img/corações/img7.png',
-    '../img/corações/img8.png'
+    './img/corações/img1.png',
+    './img/corações/img2.png',
+    './img/corações/img3.png',
+    './img/corações/img4.png',
+    './img/corações/img5.png',
+    './img/corações/img6.png',
+    './img/corações/img7.png',
+    './img/corações/img8.png'
   ];
 
   function createFloatingImage() {
@@ -32,7 +32,7 @@
   setInterval(createFloatingImage, 1200);
   //corações no header
   const imageList = [
-      '../img/corações/cora1.png'
+      './img/corações/cora1.png'
     ];
 
     function showMovingImage() {
