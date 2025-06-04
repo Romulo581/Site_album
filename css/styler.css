@@ -1,150 +1,193 @@
-    body {
-        margin: 0;
-        overflow: hidden;
-        background-color: #F8FBFF;
-        /* fundo escuro para contraste */
-    }
+/* ======================== */
+/* ESTILO GERAL DO SITE     */
+/* ======================== */
 
-    .floating-image {
-        position: absolute;
-        width: 170px;
-        height: 100px;
-        pointer-events: none;
-        animation: floatUp 12s linear forwards;
-    }
+body {
+  margin: 0;
+  overflow: hidden;
+  background-color: #F8FBFF;
+  width: 100vw;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
 
-    @keyframes floatUp {
-        from {
-            transform: translateY(0);
-            opacity: 1;
-        }
+/* ======================== */
+/* CORAÇÕES FLUTUANTES      */
+/* ======================== */
 
-        to {
-            transform: translateY(-300px);
-            opacity: 0;
-        }
-    }
+.floating-image {
+  position: absolute;
+  width: 80px;
+  height: 60px;
+  pointer-events: none;
+  animation: zigzagUp 12s linear forwards;
+  z-index: 500;
+}
 
-    /*corações noreader*/
-    header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 80px;
-        overflow: hidden;
-        background-color: transparent;
-        z-index: 1000;
-    }
+@keyframes zigzagUp {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  20% {
+    transform: translate(-30px, -60px);
+  }
+  40% {
+    transform: translate(30px, -120px);
+  }
+  60% {
+    transform: translate(-30px, -180px);
+  }
+  80% {
+    transform: translate(30px, -240px);
+  }
+  100% {
+    transform: translate(0, -300px);
+    opacity: 0;
+  }
+}
 
-    .moving-img {
-        position: absolute;
-        top: 10px;
-        height: 60px;
-        animation: slideRight 10s linear forwards;
-    }
+/* ======================== */
+/* CABEÇALHO COM CORAÇÕES   */
+/* ======================== */
 
-    @keyframes slideRight {
-        0% {
-            left: -200px;
-        }
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  overflow: hidden;
+  background-color: transparent;
+  z-index: 1000;
+}
 
-        100% {
-            left: 100%;
-        }
-    }
+.moving-img {
+  position: absolute;
+  top: 10px;
+  height: 60px;
+  animation: slideRight 10s linear forwards;
+}
 
-    /*carroceu*/
-    .myCarousel-container {
-        position: relative;
-        width: 1200px;
-        height: 1000px;
-        overflow: hidden;
-        border-radius: 10px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.884);
-        background: #fff;
-        margin: 90px auto;
-    }
+@keyframes slideRight {
+  0% {
+    left: -200px;
+  }
+  100% {
+    left: 100%;
+  }
+}
 
-    .myCarousel-image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: none;
-        position: absolute;
-        top: 0;
-        left: 0;
-        transition: opacity 0.5s ease;
-        opacity: 0;
-    }
+/* ======================== */
+/* CARROSSEL DE IMAGENS     */
+/* ======================== */
 
-    .myCarousel-image.active {
-        display: block;
-        opacity: 1;
-        position: relative;
-    }
+.myCarousel-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+  background: #fff;
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
 
-    .myCarousel-button {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background: rgba(0, 0, 0, 0.5);
-        border: none;
-        color: white;
-        font-size: 2rem;
-        padding: 10px 15px;
-        cursor: pointer;
-        border-radius: 50%;
-        user-select: none;
-        transition: background 0.3s;
-        z-index: 10;
-    }
+.myCarousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.5s ease;
+  opacity: 0;
+}
 
-    .myCarousel-button:hover {
-        background: rgba(0, 0, 0, 0.8);
-    }
+.myCarousel-image.active {
+  display: block;
+  opacity: 1;
+  position: relative;
+}
 
-    .myCarousel-button.prev {
-        left: 10px;
-    }
+/* ======================== */
+/* BOTÕES DE NAVEGAÇÃO      */
+/* ======================== */
 
-    .myCarousel-button.next {
-        right: 10px;
-    }
+.carousel-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 100;
+  cursor: pointer;
+}
 
-    .nav-button {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 400px;
-        /* ajuste conforme a seta */
-        height: auto;
-        cursor: pointer;
-        z-index: 10;
-    }
+#prevBtn {
+  left: 10px;
+}
+#nextBtn {
+  right: 10px;
+}
 
-    #prevBtn {
-        left: -150px;
-    }
-    /* teste */
-    #nextBtn {
-        right: -150px;
-    }
-@media (max-width: 768px) {
-  .myCarousel-container {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 3 / 4; /* ou ajuste para algo como 4/5 se quiser mais quadrado */
-    margin: 80px 0 0 0;
-    border-radius: 0;
+/* ======================== */
+/* BOTÃO TOCAR MÚSICA       */
+/* ======================== */
+
+.play_musica {
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 5px 12px;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+  z-index: 999;
+}
+
+.play_musica:hover {
+  background-color: #0056b3;
+}
+
+/* ======================== */
+/* MEDIA QUERY MOBILE       */
+/* ======================== */
+
+@media (orientation: portrait) {
+  body::before {
+    content: "Gire o celular para visualizar melhor.";
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2000;
+    background-color: #000000cc;
+    color: #fff;
+    font-size: 1.5rem;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
   }
 
+  .myCarousel-container,
   .myCarousel-image {
-    object-fit: contain;
+    display: none !important;
   }
 
-  #prevBtn,
-  #nextBtn {
-    display: none; /* opcional: esconde botões em telas pequenas */
+  .play_musica {
+    display: none !important;
   }
 }

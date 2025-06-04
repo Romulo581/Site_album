@@ -98,3 +98,25 @@ const nextBtn = document.getElementById('nextBtn');
 
     interval = setInterval(nextImage, intervalTime);
   })();
+
+  // play-list musical
+  const playlist =[
+    'musica/Belo_Perfume.mp3',
+    'musica/Pitty_Equalize.mp3',
+    'musica/Extreme_More_Than_Words.mp3'
+  ];
+  const player = document.getElementById('player');
+  let index = 0;
+
+  function playNext(){
+    if(index >= playlist.length) index = 0;
+    player.src = playlist[index];
+    player.play().catch(() => {
+      console.log('Reprodução Bloqueada. Esperando interação do usuario.');
+    });
+    index++;
+  }
+
+  player.addEventListener('ended', playNext);
+
+  window.addEventListener('load', playNext);

@@ -2,7 +2,8 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, orientation=landscape" />
+
   <title>Carrossel com Corações</title>
   <link rel="stylesheet" href="./css/styler.css" />
 </head>
@@ -10,7 +11,7 @@
 
 
   <header id="header"></header>
-
+  <audio id="player" autoplay></audio>
   <div class="myCarousel-container" id="myCarousel">
     <img src="./img/carroceu/1.png" alt="Imagem 1" class="myCarousel-image active" />
     <img src="./img/carroceu/2.png" alt="Imagem 2" class="myCarousel-image" />
@@ -25,10 +26,11 @@
     <img src="./img/carroceu/11.png" alt="Imagem 11" class="myCarousel-image" />
     <img src="./img/carroceu/12.png" alt="Imagem 12" class="myCarousel-image" />
     <img src="./img/carroceu/13.png" alt="Imagem 13" class="myCarousel-image" />
-
-    <div id="prevBtn" class="carousel-icon"></div>
-    <div id="nextBtn" class="carousel-icon"></div>
+    
   </div>
+    <div id="nextBtn" class="carousel-icon"></div>
+    <div id="prevBtn" class="carousel-icon"></div>
+  <button onclick="playNext()" class="play_musica">Tocar Música</button>
 
   <script src="./javaScript/script.js"></script>
 </body>
