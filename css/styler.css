@@ -62,14 +62,14 @@ header {
 .myCarousel-container {
   position: relative;
   width: 90vw;
-  height: 100vh;
-  max-width: 800px;
-  max-height: 600px;
+  height: 80vh;
   overflow: hidden;
-  margin: 0 auto;
+  margin: 90px auto 0;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.884);
   background: #fff;
+  max-width: none;  /* Remove limites */
+  max-height: none;
 }
 
 .slide {
@@ -137,14 +137,16 @@ header {
   }
 }
 
-/* Força o carrossel a ocupar a tela inteira no modo paisagem */
+/* Força o carrossel a ocupar a tela inteira no modo paisagem em telas pequenas */
 @media screen and (orientation: landscape) and (max-width: 1024px) {
   .myCarousel-container {
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    border-radius: 0;
-    box-shadow: none;
+    width: 100vw !important;
+    height: 100vh !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    max-width: none !important;
+    max-height: none !important;
   }
 }
 
