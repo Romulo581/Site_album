@@ -1,8 +1,11 @@
 /* ======================== */
 /*          GERAL           */
 /* ======================== */
-body {
+html, body {
   margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
   overflow: hidden;
   background-color: #F8FBFF;
 }
@@ -28,7 +31,7 @@ body {
 }
 
 /* ======================== */
-/*      HEADER FLUTUANTE   */
+/*      HEADER FLUTUANTE    */
 /* ======================== */
 header {
   position: fixed;
@@ -54,74 +57,42 @@ header {
 }
 
 /* ======================== */
-/*        CARROSSEL        */
+/*         CARROSSEL        */
 /* ======================== */
 .myCarousel-container {
   position: relative;
-  width: 90%;
-  max-width: 1200px;
-  height: 80vh;
+  width: 90vw;
+  height: 100vh;
+  max-width: 800px;
+  max-height: 600px;
   overflow: hidden;
+  margin: 0 auto;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.884);
   background: #fff;
-  margin: 90px auto 0;
 }
 
-.myCarousel-image {
+.slide {
   width: 100%;
   height: 100%;
-  object-fit: cover;
   display: none;
   position: absolute;
   top: 0;
   left: 0;
-  transition: opacity 0.5s ease;
-  opacity: 0;
 }
 
-.myCarousel-image.active {
+.slide.active {
   display: block;
-  opacity: 1;
-  position: relative;
-}
-.carousel-icon-direito,
-.carousel-icon-esquerdo {
-  position: absolute;
-  top: 50%;
-  width: 50px;
-  height: 50px;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  cursor: pointer;
-  transform: translateY(-50%);
-  z-index: 1000; /* garante que fique na frente */
 }
 
-/* seta direita */
-.carousel-icon-direito {
-  right: 10px;
-  background-image: url('./img/seta-direita.png');
-}
-
-/* seta esquerda */
-.carousel-icon-esquerdo {
-  left: 10px;
-  background-image: url('./img/seta-esquerda.png');
-}
-
-
-#prevBtn {
-  left: -150px;
-}
-
-#nextBtn {
-  right: -150px;
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* ======================== */
-/*      BOTÃO DE MÚSICA      */
+/*      BOTÃO DE MÚSICA     */
 /* ======================== */
 .play_musica {
   display: block;
@@ -145,13 +116,13 @@ header {
 /* ======================== */
 @media (max-width: 768px) {
   .myCarousel-container {
-    width: 95%;
+    width: 95vw;
     height: 60vh;
     margin-top: 80px;
     border-radius: 5px;
   }
 
-  .myCarousel-image {
+  .slide img {
     object-fit: contain;
   }
 
@@ -166,7 +137,18 @@ header {
   }
 }
 
-/* Orientação horizontal forçada */
+/* Força o carrossel a ocupar a tela inteira no modo paisagem */
+@media screen and (orientation: landscape) and (max-width: 1024px) {
+  .myCarousel-container {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+
+/* Orientação vertical: bloqueia visualização e mostra aviso */
 @media screen and (orientation: portrait) {
   body::before {
     content: "Por favor, gire o dispositivo para a horizontal.";

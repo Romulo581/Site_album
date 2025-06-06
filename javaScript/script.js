@@ -55,49 +55,52 @@
 
     //carroceu
 
-     (function(){
-    const carousel = document.getElementById('myCarousel');
-    const images = carousel.querySelectorAll('.myCarousel-image');
-const prevBtn = document.getElementById('prevBtn');
-const nextBtn = document.getElementById('nextBtn');
+     (function () {
+  const carousel = document.getElementById('myCarousel');
+  const slides = carousel.querySelectorAll('.slide');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
 
-    let currentIndex = 0;
-    const intervalTime = 4000;
-    let interval;
+  let currentIndex = 0;
+  const intervalTime = 4000;
+  let interval;
 
-    function showImage(index) {
-      images.forEach((img, i) => {
-        img.classList.toggle('active', i === index);
-      });
-    }
-
-    function nextImage() {
-      currentIndex = (currentIndex + 1) % images.length;
-      showImage(currentIndex);
-    }
-
-    function prevImage() {
-      currentIndex = (currentIndex - 1 + images.length) % images.length;
-      showImage(currentIndex);
-    }
-
-    prevBtn.addEventListener('click', () => {
-      prevImage();
-      resetInterval();
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
     });
+  }
 
-    nextBtn.addEventListener('click', () => {
-      nextImage();
-      resetInterval();
-    });
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % slides.length;
+    showSlide(currentIndex);
+  }
 
-    function resetInterval() {
-      clearInterval(interval);
-      interval = setInterval(nextImage, intervalTime);
-    }
+  function prevSlide() {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    showSlide(currentIndex);
+  }
 
-    interval = setInterval(nextImage, intervalTime);
-  })();
+  function resetInterval() {
+    clearInterval(interval);
+    interval = setInterval(nextSlide, intervalTime);
+  }
+
+  prevBtn.addEventListener('click', () => {
+    prevSlide();
+    resetInterval();
+  });
+
+  nextBtn.addEventListener('click', () => {
+    nextSlide();
+    resetInterval();
+  });
+
+  // Inicia o carrossel
+  showSlide(currentIndex);
+  interval = setInterval(nextSlide, intervalTime);
+})();
+
 
   // play-list musical
   const playlist =[
