@@ -21,15 +21,6 @@ html, body {
   animation: zigzagUp 12s linear forwards;
 }
 
-@keyframes zigzagUp {
-  0% { transform: translate(0, 0); opacity: 1; }
-  20% { transform: translate(-30px, -60px); }
-  40% { transform: translate(30px, -120px); }
-  60% { transform: translate(-30px, -180px); }
-  80% { transform: translate(30px, -240px); }
-  100% { transform: translate(0, -300px); opacity: 0; }
-}
-
 /* ======================== */
 /*      HEADER FLUTUANTE    */
 /* ======================== */
