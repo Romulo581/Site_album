@@ -61,8 +61,8 @@ header {
 /* ======================== */
 .myCarousel-container {
   position: relative;
-  width: 800px;       /* tamanho fixo definido */
-  height: 600px;      /* tamanho fixo definido */
+  width: 90vw;
+  height: 80vh;
   overflow: hidden;
   margin: 90px auto 0;
   border-radius: 10px;
@@ -88,8 +88,7 @@ header {
 .slide img {
   width: 100%;
   height: 100%;
-  object-fit: contain;  /* mostra a imagem inteira sem cortar */
-  background-color: #000; /* opcional: fundo preto para espaço vazio */
+  object-fit: cover;
 }
 
 /* ======================== */
@@ -117,11 +116,10 @@ header {
 /* ======================== */
 @media (max-width: 768px) {
   .myCarousel-container {
-    width: 100vw;
-    height: 75vh;
+    width: 95vw;
+    height: 60vh;
     margin-top: 80px;
     border-radius: 5px;
-    box-shadow: none;
   }
 
   .slide img {
@@ -139,7 +137,24 @@ header {
   }
 }
 
-/* Força o carrossel a ocupar a tela inteira no modo paisagem em telas pequenas */
+/* Configuração especial para telas entre 320px e 480px */
+@media (min-width: 320px) and (max-width: 480px) {
+  .myCarousel-container {
+    width: 100vw;
+    height: calc(100vw * 0.6); /* altura proporcional à largura */
+    max-height: 240px; /* limite máximo de altura */
+    margin: 80px auto 0;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+  }
+  
+  .slide img {
+    object-fit: contain; /* evita corte das imagens */
+    background-color: #000; /* fundo preto para evitar "buracos" */
+  }
+}
+
+/* Orientação horizontal para telas até 1024px */
 @media screen and (orientation: landscape) and (max-width: 1024px) {
   .myCarousel-container {
     width: 100vw !important;
