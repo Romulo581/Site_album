@@ -56,6 +56,37 @@ header {
   100% { left: 100%; }
 }
 
+@keyframes zigzagHorizontal {
+  0% {
+    left: -150px;
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(-15px);
+  }
+  40% {
+    transform: translateY(15px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+  80% {
+    transform: translateY(15px);
+  }
+  100% {
+    left: 100%;
+    transform: translateY(0);
+  }
+}
+
+.moving-img {
+  position: absolute;
+  top: 10px;
+  height: 40px; /* ou o valor que você escolheu */
+  animation: zigzagHorizontal 10s linear forwards;
+}
+
+
 /* ======================== */
 /*         CARROSSEL        */
 /* ======================== */

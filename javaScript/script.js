@@ -45,9 +45,13 @@ function showMovingImage() {
   const header = document.getElementById('header');
   header.appendChild(img);
 
+  
+
   // Remove a imagem após a animação (10s)
   setTimeout(() => img.remove(), 10000);
 }
+
+
 
 // Mostra uma nova imagem a cada 10 segundos
 setInterval(showMovingImage, 1000);
