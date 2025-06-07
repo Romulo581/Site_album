@@ -27,7 +27,7 @@ function showMovingImage() {
   const img = document.createElement('img');
   img.src = imageList[Math.floor(Math.random() * imageList.length)];
   img.className = 'moving-img';
-  img.style.height = '40px';
+  img.style.height = '20px';
   img.style.width = 'auto';
   document.getElementById('header').appendChild(img);
   setTimeout(() => img.remove(), 10000);
