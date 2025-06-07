@@ -39,6 +39,9 @@ function showMovingImage() {
   img.src = imageList[Math.floor(Math.random() * imageList.length)];
   img.className = 'moving-img';
 
+  img.style.height = '40px'; // ou ajuste conforme necessário
+  img.style.width = 'auto';
+
   const header = document.getElementById('header');
   header.appendChild(img);
 
@@ -47,7 +50,7 @@ function showMovingImage() {
 }
 
 // Mostra uma nova imagem a cada 10 segundos
-setInterval(showMovingImage, 10000);
+setInterval(showMovingImage, 1000);
 
 // Começa imediatamente com a primeira
 showMovingImage();
