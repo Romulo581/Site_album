@@ -1,61 +1,59 @@
-  // Caminhos relativos às imagens da pasta "imagens/"
-  const imageSources = [
-    './img/corações/img1.png',
-    './img/corações/img2.png',
-    './img/corações/img3.png',
-    './img/corações/img4.png',
-    './img/corações/img5.png',
-    './img/corações/img6.png',
-    './img/corações/img7.png',
-    './img/corações/img8.png'
-  ];
+// Corações flutuantes
+const imageSources = [
+  './img/corações/img1.png',
+  './img/corações/img2.png',
+  './img/corações/img3.png',
+  './img/corações/img4.png',
+  './img/corações/img5.png',
+  './img/corações/img6.png',
+  './img/corações/img7.png',
+  './img/corações/img8.png'
+];
 
-  function createFloatingImage() {
-    const img = document.createElement('img');
-    img.src = imageSources[Math.floor(Math.random() * imageSources.length)];
-    img.className = 'floating-image';
+function createFloatingImage() {
+  const img = document.createElement('img');
+  img.src = imageSources[Math.floor(Math.random() * imageSources.length)];
+  img.className = 'floating-image';
 
-    // Posição horizontal aleatória
-    const x = Math.random() * window.innerWidth;
-    const y = window.innerHeight;
+  // Posição horizontal aleatória
+  const x = Math.random() * window.innerWidth;
+  const y = window.innerHeight;
 
-    img.style.left = `${x}px`;
-    img.style.top = `${y}px`;
+  img.style.left = `${x}px`;
+  img.style.top = `${y}px`;
 
-    document.body.appendChild(img);
+  document.body.appendChild(img);
 
-    // Remove a imagem após a animação (12 segundos)
-    setTimeout(() => img.remove(), 12000);
-  }
+  // Remove a imagem após a animação (12 segundos)
+  setTimeout(() => img.remove(), 12000);
+}
 
-  // Cria uma nova imagem flutuante a cada 1 segundo
-  setInterval(createFloatingImage, 1200);
-  //corações no header
-  const imageList = [
-      './img/corações/cora1.png'
-    ];
+// Cria uma nova imagem flutuante a cada 1,2 segundos
+setInterval(createFloatingImage, 1200);
 
-    function showMovingImage() {
-      const img = document.createElement('img');
-      img.src = imageList[Math.floor(Math.random() * imageList.length)];
-      img.className = 'moving-img';
+// Coração no header
+const imageList = ['./img/corações/cora1.png'];
 
-      const header = document.getElementById('header');
-      header.appendChild(img);
+function showMovingImage() {
+  const img = document.createElement('img');
+  img.src = imageList[Math.floor(Math.random() * imageList.length)];
+  img.className = 'moving-img';
 
-      // Remove a imagem após a animação (10s)
-      setTimeout(() => img.remove(), 10000);
-    }
+  const header = document.getElementById('header');
+  header.appendChild(img);
 
-    // Mostra uma nova imagem a cada 12 segundos
-    setInterval(showMovingImage, 1000);
+  // Remove a imagem após a animação (10s)
+  setTimeout(() => img.remove(), 10000);
+}
 
-    // Começa imediatamente com a primeira
-    showMovingImage();
+// Mostra uma nova imagem a cada 10 segundos
+setInterval(showMovingImage, 10000);
 
-    //carroceu
+// Começa imediatamente com a primeira
+showMovingImage();
 
-     (function () {
+// Carrossel
+(function () {
   const carousel = document.getElementById('myCarousel');
   const slides = carousel.querySelectorAll('.slide');
   const prevBtn = document.getElementById('prevBtn');
@@ -68,6 +66,16 @@
   function showSlide(index) {
     slides.forEach((slide, i) => {
       slide.classList.toggle('active', i === index);
+
+      if (i === index) {
+        const img = slide.querySelector('img');
+        if (img) {
+          img.style.width = '100%';
+          img.style.height = '100%';
+          img.style.objectFit = 'contain';
+          img.style.backgroundColor = '#000';
+        }
+      }
     });
   }
 
@@ -101,25 +109,25 @@
   interval = setInterval(nextSlide, intervalTime);
 })();
 
+// Playlist musical
+const playlist = [
+  'musica/Belo_Perfume.mp3',
+  'musica/Pitty_Equalize.mp3',
+  'musica/Extreme_More_Than_Words.mp3'
+];
 
-  // play-list musical
-  const playlist =[
-    'musica/Belo_Perfume.mp3',
-    'musica/Pitty_Equalize.mp3',
-    'musica/Extreme_More_Than_Words.mp3'
-  ];
-  const player = document.getElementById('player');
-  let index = 0;
+const player = document.getElementById('player');
+let index = 0;
 
-  function playNext(){
-    if(index >= playlist.length) index = 0;
-    player.src = playlist[index];
-    player.play().catch(() => {
-      console.log('Reprodução Bloqueada. Esperando interação do usuario.');
-    });
-    index++;
-  }
+function playNext() {
+  if (index >= playlist.length) index = 0;
+  player.src = playlist[index];
+  player.play().catch(() => {
+    console.log('Reprodução Bloqueada. Esperando interação do usuario.');
+  });
+  index++;
+}
 
-  player.addEventListener('ended', playNext);
+player.addEventListener('ended', playNext);
 
-  window.addEventListener('load', playNext);
+window.addEventListener('load', playNext);
