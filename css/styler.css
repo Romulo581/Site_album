@@ -1,6 +1,3 @@
-/* ======================== */
-/*          GERAL           */
-/* ======================== */
 html, body {
   margin: 0;
   padding: 0;
@@ -10,9 +7,6 @@ html, body {
   background-color: #F8FBFF;
 }
 
-/* ======================== */
-/* CORAÇÕES FLUTUANTES      */
-/* ======================== */
 .floating-image {
   position: absolute;
   width: 170px;
@@ -23,16 +17,9 @@ html, body {
 
 @keyframes zigzagUp {
   0% { transform: translate(0, 0); opacity: 1; }
-  20% { transform: translate(-30px, -60px); }
-  40% { transform: translate(30px, -120px); }
-  60% { transform: translate(-30px, -180px); }
-  80% { transform: translate(30px, -240px); }
   100% { transform: translate(0, -300px); opacity: 0; }
 }
 
-/* ======================== */
-/*      HEADER FLUTUANTE    */
-/* ======================== */
 header {
   position: fixed;
   top: 0;
@@ -47,63 +34,19 @@ header {
 .moving-img {
   position: absolute;
   top: 10px;
-  height: 60px;
-  animation: slideRight 10s linear forwards;
-}
-
-@keyframes slideRight {
-  0% { left: -200px; }
-  100% { left: 100%; }
-}
-
-@keyframes zigzagHorizontal {
-  0% {
-    left: -150px;
-    transform: translateY(0);
-  }
-  20% {
-    transform: translateY(-15px);
-  }
-  40% {
-    transform: translateY(15px);
-  }
-  60% {
-    transform: translateY(-15px);
-  }
-  80% {
-    transform: translateY(15px);
-  }
-  100% {
-    left: 100%;
-    transform: translateY(0);
-  }
-}
-
-.moving-img {
-  position: absolute;
-  top: 10px;
-  height: 40px; /* ou o valor que você escolheu */
+  height: 40px;
   animation: zigzagHorizontal 10s linear forwards;
 }
 
-
-/* ======================== */
-/*         CARROSSEL        */
-/* ======================== */
-
-.myCarousel-container {
-  background-color: transparent !important;
-  box-shadow: none !important;
+@keyframes zigzagHorizontal {
+  0% { left: -150px; transform: translateY(0); }
+  20% { transform: translateY(-15px); }
+  40% { transform: translateY(15px); }
+  60% { transform: translateY(-15px); }
+  80% { transform: translateY(15px); }
+  100% { left: 100%; transform: translateY(0); }
 }
 
-.slide {
-  background-color: transparent !important;
-}
-
-.slide img {
-  background-color: transparent !important;
-  object-fit: contain;
-}
 .myCarousel-container {
   background-color: transparent;
   position: relative;
@@ -113,8 +56,6 @@ header {
   margin: 90px auto 0;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  max-width: none;
-  max-height: none;
 }
 
 .slide {
@@ -124,7 +65,6 @@ header {
   position: absolute;
   top: 0;
   left: 0;
-  background: transparent;
 }
 
 .slide.active {
@@ -138,11 +78,9 @@ header {
   object-position: center;
   background: transparent;
   display: block;
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-/* ======================== */
-/*      BOTÃO DE MÚSICA     */
-/* ======================== */
 .play_musica {
   display: block;
   margin: 8px auto 0;
@@ -160,9 +98,6 @@ header {
   background-color: #0056b3;
 }
 
-/* ======================== */
-/*        RESPONSIVO        */
-/* ======================== */
 @media (max-width: 768px) {
   .myCarousel-container {
     width: 95vw;
@@ -175,8 +110,7 @@ header {
     object-fit: contain;
   }
 
-  #prevBtn,
-  #nextBtn {
+  #prevBtn, #nextBtn {
     display: none;
   }
 
@@ -186,12 +120,12 @@ header {
   }
 }
 
-/* Foco em telas menores (320px a 480px) em orientação horizontal */
+/* Galaxy A06 horizontal */
 @media screen and (min-width: 320px) and (max-width: 480px) and (orientation: landscape) {
   .myCarousel-container {
     width: 100vw;
     height: 55vh;
-    margin: 70px 0 0 0;
+    margin-top: 70px;
     border-radius: 0;
     box-shadow: none;
   }
@@ -201,7 +135,6 @@ header {
   }
 }
 
-/* Orientação vertical: bloqueia visualização e mostra aviso */
 @media screen and (orientation: portrait) {
   body::before {
     content: "Por favor, gire o dispositivo para a horizontal.";
@@ -211,7 +144,7 @@ header {
     right: 0;
     bottom: 0;
     background-color: #000000dd;
-
+    color: white;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -225,3 +158,4 @@ header {
     display: none !important;
   }
 }
+
