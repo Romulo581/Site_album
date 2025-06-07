@@ -21,6 +21,15 @@ html, body {
   animation: zigzagUp 12s linear forwards;
 }
 
+@keyframes zigzagUp {
+  0% { transform: translate(0, 0); opacity: 1; }
+  20% { transform: translate(-30px, -60px); }
+  40% { transform: translate(30px, -120px); }
+  60% { transform: translate(-30px, -180px); }
+  80% { transform: translate(30px, -240px); }
+  100% { transform: translate(0, -300px); opacity: 0; }
+}
+
 /* ======================== */
 /*      HEADER FLUTUANTE    */
 /* ======================== */
@@ -50,15 +59,29 @@ header {
 /* ======================== */
 /*         CARROSSEL        */
 /* ======================== */
+
 .myCarousel-container {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.slide {
+  background-color: transparent !important;
+}
+
+.slide img {
+  background-color: transparent !important;
+  object-fit: contain;
+}
+.myCarousel-container {
+  background-color: transparent;
   position: relative;
   width: 95vw;
   height: 60vh;
   overflow: hidden;
   margin: 90px auto 0;
   border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.884);
-  background: #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   max-width: none;
   max-height: none;
 }
@@ -70,6 +93,7 @@ header {
   position: absolute;
   top: 0;
   left: 0;
+  background: transparent;
 }
 
 .slide.active {
@@ -79,8 +103,10 @@ header {
 .slide img {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* Evita corte da imagem */
-  background-color: #000; /* Fundo para evitar bordas */
+  object-fit: contain;
+  object-position: center;
+  background: transparent;
+  display: block;
 }
 
 /* ======================== */
@@ -154,7 +180,7 @@ header {
     right: 0;
     bottom: 0;
     background-color: #000000dd;
-    color: white;
+
     display: flex;
     align-items: center;
     justify-content: center;

@@ -73,7 +73,7 @@ showMovingImage();
           img.style.width = '100%';
           img.style.height = '100%';
           img.style.objectFit = 'contain';
-          img.style.backgroundColor = '#000';
+          img.style.backgroundColor = 'transparent';
         }
       }
     });
