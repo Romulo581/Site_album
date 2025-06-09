@@ -191,7 +191,7 @@ header {
 @media (min-width: 769px) and (max-width: 1024px) {
   .myCarousel-container {
     height: 65vh;
-    margin-top: 80px;
+    margin-top: 60px;
   }
 
   .play_musica {
