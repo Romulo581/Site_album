@@ -136,21 +136,22 @@ header {
 /* ======================== */
 /*        RESPONSIVO        */
 /* ======================== */
+/* ======================== */
+/*        RESPONSIVO        */
+/* ======================== */
+
+/* Telas pequenas: até 768px */
 @media (max-width: 768px) {
   .myCarousel-container {
     width: 95vw;
-    height: 60vh;
-    margin-top: 60px !important; /* subir mais o carrossel */
+    height: 55vh;
+    margin-top: 60px;
     border-radius: 5px;
+    box-shadow: none;
   }
 
   .slide img {
     object-fit: contain;
-  }
-
-  #prevBtn,
-  #nextBtn {
-    display: none;
   }
 
   .play_musica {
@@ -160,27 +161,81 @@ header {
     position: relative;
     z-index: 10;
   }
+
+  #prevBtn,
+  #nextBtn {
+    display: none;
+  }
 }
 
-/* Para celulares pequenos em horizontal (ex: 524x202) */
-@media screen and (max-width: 600px) and (orientation: landscape) {
+/* Telas muito pequenas (ex: 524x202) e horizontais */
+@media screen and (max-width: 600px) and (max-height: 360px) and (orientation: landscape) {
   .myCarousel-container {
-    margin-top: 20px !important;
+    margin-top: 20px;
     height: 50vh;
     width: 100vw;
     border-radius: 0;
     box-shadow: none;
   }
 
-  .slide img {
-    object-fit: contain;
-  }
-
   .play_musica {
     font-size: 0.75rem;
     padding: 5px 12px;
     margin-top: 8px;
-    position: relative;
-    z-index: 10;
+  }
+
+  .slide img {
+    object-fit: contain;
+  }
+}
+
+/* Telas entre 769px e 1024px (tablets e intermediárias) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .myCarousel-container {
+    height: 65vh;
+    margin-top: 80px;
+  }
+
+  .play_musica {
+    font-size: 1rem;
+    padding: 10px 18px;
+  }
+}
+
+/* Telas grandes: desktop */
+@media (min-width: 1025px) {
+  .myCarousel-container {
+    height: 70vh;
+    margin-top: 90px;
+  }
+
+  .play_musica {
+    font-size: 1rem;
+    padding: 12px 20px;
+  }
+}
+
+/* ORIENTAÇÃO VERTICAL: BLOQUEIO E AVISO */
+@media screen and (orientation: portrait) and (max-width: 768px) {
+  body::before {
+    content: "Por favor, gire o dispositivo para a horizontal.";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000000dd;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    z-index: 9999;
+    text-align: center;
+    padding: 20px;
+  }
+
+  body > * {
+    display: none !important;
   }
 }
