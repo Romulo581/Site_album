@@ -140,7 +140,7 @@ header {
   .myCarousel-container {
     width: 95vw;
     height: 60vh;
-    margin-top: -50px;
+    margin-top: 80px;
     border-radius: 5px;
   }
 
@@ -162,15 +162,20 @@ header {
 /* Foco em telas menores (320px a 480px) em orientação horizontal */
 @media screen and (min-width: 320px) and (max-width: 480px) and (orientation: landscape) {
   .myCarousel-container {
-    width: 100vw;
+    margin-top: 20px !important; /* sobe o carrossel */
     height: 55vh;
-    margin: 70px 0 0 0;
+    width: 100vw;
     border-radius: 0;
     box-shadow: none;
   }
 
   .slide img {
     object-fit: contain;
+  }
+    .play_musica {
+    margin-top: 4px !important; /* sobe o botão de música */
+    font-size: 0.85rem;
+    padding: 6px 14px;
   }
 }
 
