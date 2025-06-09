@@ -165,7 +165,7 @@ header {
 /* Foco em telas menores (320px a 480px) em orientação horizontal */
 @media screen and (min-width: 320px) and (max-width: 480px) and (orientation: landscape) {
   .myCarousel-container {
-    margin-top: 30px !important; /* afastado do topo para celular no modo paisagem */
+    margin-top: 70px; /* sobe o carrossel mais abaixo do header */
     height: 55vh;
     width: 100vw;
     border-radius: 0;
@@ -176,6 +176,7 @@ header {
     object-fit: contain;
   }
 }
+
 
 /* Orientação vertical: bloqueia visualização e mostra aviso */
 @media screen and (orientation: portrait) {
