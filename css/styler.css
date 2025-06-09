@@ -140,7 +140,7 @@ header {
   .myCarousel-container {
     width: 95vw;
     height: 60vh;
-    margin-top: 20px;
+    margin-top: -50px;
     border-radius: 5px;
   }
 
