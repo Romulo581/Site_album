@@ -102,7 +102,6 @@ showMovingImage();
   showSlide(currentIndex);
   interval = setInterval(nextSlide, intervalTime);
 })();
-
 const playlist = [
   'musica/Belo_Perfume.mp3',
   'musica/Pitty_Equalize.mp3',
@@ -110,7 +109,7 @@ const playlist = [
 ];
 
 const player = document.getElementById('player');
-const buttonPlay = document.getElementeByid('buttpmPlay')
+const buttonPlay = document.getElementById('buttonPlay'); // Corrigido getElementById
 let index = 0;
 let unlocked = false;
 
@@ -119,24 +118,28 @@ function playNext() {
   player.src = playlist[index];
   player.play().catch(() => {
     console.log('Reprodução bloqueada até interação do usuário.');
-    buttonPlay.innerText = 'Play Music ';
-    unlocked = felse;
+    buttonPlay.innerText = 'Play Music'; // Texto para indicar ação
+    unlocked = false; // Corrigido "felse"
   });
   index++;
 }
+
 player.addEventListener('ended', playNext);
 
 buttonPlay.addEventListener('click', () => {
-    if (!unlocked){
-      player.play().then(() => {
-        unlocked = true;
-        buttonPlay.innerText = 'Trocar Música';
-      }).catch(() => {
-        buttonPlay.innerText = 'Play Music'
-      });
-    }else{
-      playNext();
-    }
+  if (!unlocked) {
+    player.play().then(() => {
+      unlocked = true;
+      buttonPlay.innerText = 'Trocar Música';
+    }).catch(() => {
+      buttonPlay.innerText = 'Play Music';
+    });
+  } else {
+    playNext();
+  }
 });
+
+// Opcional: define texto inicial no botão
+buttonPlay.innerText = 'Play Music';
 
 window.addEventListener('load', playNext);

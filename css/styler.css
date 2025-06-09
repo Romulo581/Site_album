@@ -38,19 +38,27 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  height: 25px;
+  height: 50px;
   overflow: hidden;
   background-color: transparent;
   z-index: 1000;
+}
+
+@keyframes zigzagHorizontal {
+  0%   { left: -50px; top: 10px; }
+  20%  { top: 0px; }
+  40%  { top: 20px; }
+  60%  { top: 0px; }
+  80%  { top: 20px; }
+  100% { left: 100%; top: 10px; }
 }
 
 .moving-img {
   position: absolute;
   top: 10px;
   height: 40px;
-  animation: zigzagHorizontal 10s linear forwards;
+  animation: zigzagHorizontal 10s ease-in-out forwards;
 }
-
 
 /* ======================== */
 /*         CARROSSEL        */
