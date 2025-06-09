@@ -164,7 +164,7 @@ header {
   .myCarousel-container {
     width: 100vw;
     height: 55vh;
-    margin: 40px 0 0 0;
+    margin: 10px 0 0 0;
     border-radius: 0;
     box-shadow: none;
   }
