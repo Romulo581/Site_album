@@ -14,25 +14,48 @@ function createFloatingImage() {
   const img = document.createElement('img');
   img.src = imageSources[Math.floor(Math.random() * imageSources.length)];
   img.className = 'floating-image';
-  img.style.left = `${Math.random() * window.innerWidth}px`;
-  img.style.top = `${window.innerHeight}px`;
+
+  // Posição horizontal aleatória
+  const x = Math.random() * window.innerWidth;
+  const y = window.innerHeight;
+
+  img.style.left = `${x}px`;
+  img.style.top = `${y}px`;
+
   document.body.appendChild(img);
+
+  // Remove a imagem após a animação (12 segundos)
   setTimeout(() => img.remove(), 12000);
 }
+
+// Cria uma nova imagem flutuante a cada 1,2 segundos
 setInterval(createFloatingImage, 1200);
 
-// Header animado
+// Coração no header
 const imageList = ['./img/corações/cora1.png'];
+
 function showMovingImage() {
   const img = document.createElement('img');
   img.src = imageList[Math.floor(Math.random() * imageList.length)];
   img.className = 'moving-img';
-  img.style.height = '20px';
+  img.style.height = '40px';
   img.style.width = 'auto';
-  document.getElementById('header').appendChild(img);
+
+  const header = document.getElementById('header');
+  header.appendChild(img);
+
+  
+
+  // Remove a imagem após a animação (10s)
   setTimeout(() => img.remove(), 10000);
 }
+
+
+
+// Mostra uma nova imagem a cada 10 segundos
 setInterval(showMovingImage, 1000);
+
+// Começa imediatamente com a primeira
 showMovingImage();
 
 // Carrossel
@@ -41,6 +64,7 @@ showMovingImage();
   const slides = carousel.querySelectorAll('.slide');
   const prevBtn = document.getElementById('prevBtn');
   const nextBtn = document.getElementById('nextBtn');
+
   let currentIndex = 0;
   const intervalTime = 4000;
   let interval;
@@ -48,6 +72,16 @@ showMovingImage();
   function showSlide(index) {
     slides.forEach((slide, i) => {
       slide.classList.toggle('active', i === index);
+
+      if (i === index) {
+        const img = slide.querySelector('img');
+        if (img) {
+          img.style.width = '100%';
+          img.style.height = '100%';
+          img.style.objectFit = 'contain';
+          img.style.backgroundColor = 'transparent';
+        }
+      }
     });
   }
 
@@ -76,21 +110,12 @@ showMovingImage();
     resetInterval();
   });
 
+  // Inicia o carrossel
   showSlide(currentIndex);
   interval = setInterval(nextSlide, intervalTime);
-
-  // Ajuste para imagens no redimensionamento
-  window.addEventListener('resize', () => {
-    const imgs = document.querySelectorAll('.slide img');
-    imgs.forEach(img => {
-      img.style.width = '100vw';
-      img.style.height = '100vh';
-      img.style.objectFit = 'cover';
-    });
-  });
 })();
 
-// Playlist
+// Playlist musical
 const playlist = [
   'musica/Belo_Perfume.mp3',
   'musica/Pitty_Equalize.mp3',
@@ -104,10 +129,11 @@ function playNext() {
   if (index >= playlist.length) index = 0;
   player.src = playlist[index];
   player.play().catch(() => {
-    console.log('Reprodução bloqueada até interação do usuário.');
+    console.log('Reprodução Bloqueada. Esperando interação do usuario.');
   });
   index++;
 }
 
 player.addEventListener('ended', playNext);
+
 window.addEventListener('load', playNext);
