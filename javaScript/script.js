@@ -143,3 +143,19 @@ buttonPlay.addEventListener('click', () => {
 buttonPlay.innerText = 'Play Music';
 
 window.addEventListener('load', playNext);
+
+function ajustarParaViewportReal() {
+  const altura = window.innerHeight;
+  const carrossel = document.querySelector('.myCarousel-container');
+  const botao = document.querySelector('.play_musica');
+
+  if (altura < 360) {
+    carrossel.style.marginTop = '10px';
+    carrossel.style.height = '45vh';
+    botao.style.marginTop = '5px';
+  }
+}
+
+window.addEventListener('load', ajustarParaViewportReal);
+window.addEventListener('resize', ajustarParaViewportReal);
+
