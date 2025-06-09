@@ -32,30 +32,18 @@ function createFloatingImage() {
 setInterval(createFloatingImage, 1200);
 
 // Coração no header
+// Header animado
 const imageList = ['./img/corações/cora1.png'];
-
 function showMovingImage() {
   const img = document.createElement('img');
   img.src = imageList[Math.floor(Math.random() * imageList.length)];
   img.className = 'moving-img';
-  img.style.height = '40px';
+  img.style.height = '30px';
   img.style.width = 'auto';
-
-  const header = document.getElementById('header');
-  header.appendChild(img);
-
-  
-
-  // Remove a imagem após a animação (10s)
+  document.getElementById('header').appendChild(img);
   setTimeout(() => img.remove(), 10000);
 }
-
-
-
-// Mostra uma nova imagem a cada 10 segundos
 setInterval(showMovingImage, 1000);
-
-// Começa imediatamente com a primeira
 showMovingImage();
 
 // Carrossel
@@ -115,7 +103,6 @@ showMovingImage();
   interval = setInterval(nextSlide, intervalTime);
 })();
 
-// Playlist musical
 const playlist = [
   'musica/Belo_Perfume.mp3',
   'musica/Pitty_Equalize.mp3',
@@ -123,17 +110,33 @@ const playlist = [
 ];
 
 const player = document.getElementById('player');
+const buttonPlay = document.getElementeByid('buttpmPlay')
 let index = 0;
+let unlocked = false;
 
 function playNext() {
   if (index >= playlist.length) index = 0;
   player.src = playlist[index];
   player.play().catch(() => {
-    console.log('Reprodução Bloqueada. Esperando interação do usuario.');
+    console.log('Reprodução bloqueada até interação do usuário.');
+    buttonPlay.innerText = 'Play Music ';
+    unlocked = felse;
   });
   index++;
 }
-
 player.addEventListener('ended', playNext);
+
+buttonPlay.addEventListener('click', () => {
+    if (!unlocked){
+      player.play().then(() => {
+        unlocked = true;
+        buttonPlay.innerText = 'Trocar Música';
+      }).catch(() => {
+        buttonPlay.innerText = 'Play Music'
+      });
+    }else{
+      playNext();
+    }
+});
 
 window.addEventListener('load', playNext);
