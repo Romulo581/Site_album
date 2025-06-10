@@ -150,9 +150,9 @@ function ajustarParaViewportReal() {
   const botao = document.querySelector('.play_musica');
 
   if (altura < 360) {
-    carrossel.style.marginTop = '40px';
+    carrossel.style.marginTop = '45px';
     carrossel.style.height = '45vh';
-    botao.style.marginTop = '20px';
+    botao.style.marginTop = '25px';
   }
 }
 
