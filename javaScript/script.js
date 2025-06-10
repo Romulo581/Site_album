@@ -7,7 +7,39 @@ const imageSources = [
   './img/corações/img5.png',
   './img/corações/img6.png',
   './img/corações/img7.png',
-  './img/corações/img8.png'
+  './img/corações/img8.png',
+  './img/corações/img9.png',
+  './img/corações/img10.png',
+  './img/corações/img11.png',
+  './img/corações/img12.png',
+  './img/corações/img13.png',
+  './img/corações/img14.png',
+  './img/corações/img15.png',
+  './img/corações/img16.png',
+  './img/corações/img17.png',
+  './img/corações/img18.png',
+  './img/corações/img19.png',
+  './img/corações/img20.png',
+  './img/corações/img21.png',
+  './img/corações/img22.png',
+  './img/corações/img23.png',
+  './img/corações/img24.png',
+  './img/corações/img25.png',
+  './img/corações/img26.png',
+  './img/corações/img27.png',
+  './img/corações/img28.png',
+  './img/corações/img29.png',
+  './img/corações/img30.png',
+  './img/corações/img31.png',
+  './img/corações/img32.png',
+  './img/corações/img33.png',
+  './img/corações/img34.png',
+  './img/corações/img35.png',
+  './img/corações/img36.png',
+  './img/corações/img37.png',
+  './img/corações/img38.png',
+  './img/corações/img39.png',
+  './img/corações/img40.png'
 ];
 
 function createFloatingImage() {
@@ -25,11 +57,11 @@ function createFloatingImage() {
   document.body.appendChild(img);
 
   // Remove a imagem após a animação (12 segundos)
-  setTimeout(() => img.remove(), 12000);
+  setTimeout(() => img.remove(), 15000);
 }
 
 // Cria uma nova imagem flutuante a cada 1,2 segundos
-setInterval(createFloatingImage, 1200);
+setInterval(createFloatingImage, 1000);
 
 // Coração no header
 // Header animado
