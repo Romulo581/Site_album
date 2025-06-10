@@ -221,3 +221,19 @@ header {
     display: none !important;
   }
 }
+
+  /* ✅ Corações menores para telas pequenas */
+  .floating-image {
+    width: 60px;
+    height: 30px;
+  }
+
+  @keyframes zigzagUp {
+    0% { transform: translate(0, 0); opacity: 1; }
+    20% { transform: translate(-10px, -40px); }
+    40% { transform: translate(10px, -80px); }
+    60% { transform: translate(-10px, -120px); }
+    80% { transform: translate(10px, -160px); }
+    100% { transform: translate(0, -200px); opacity: 0; }
+  }
+
