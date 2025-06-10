@@ -221,3 +221,40 @@ header {
     display: none !important;
   }
 }
+@media (max-width: 768px) {
+  .myCarousel-container {
+    width: 95vw;
+    height: 60vh;
+    margin-top: 80px;
+    border-radius: 5px;
+  }
+
+  .slide img {
+    object-fit: contain;
+  }
+
+  #prevBtn,
+  #nextBtn {
+    display: none;
+  }
+
+  .play_musica {
+    font-size: 0.85rem;
+    padding: 6px 14px;
+  }
+
+  /* 🆕 Corações menores no celular */
+  .floating-image {
+    width: 90px;
+    height: 60px;
+  }
+
+  @keyframes zigzagUp {
+    0% { transform: translate(0, 0); opacity: 1; }
+    20% { transform: translate(-15px, -40px); }
+    40% { transform: translate(15px, -80px); }
+    60% { transform: translate(-15px, -120px); }
+    80% { transform: translate(15px, -160px); }
+    100% { transform: translate(0, -200px); opacity: 0; }
+  }
+}
