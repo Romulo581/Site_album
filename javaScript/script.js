@@ -150,7 +150,7 @@ function playNext() {
   player.src = playlist[index];
   player.play().catch(() => {
     console.log('Reprodução bloqueada até interação do usuário.');
-    buttonPlay.innerText = 'Play Music'; // Texto para indicar ação
+
     unlocked = false; // Corrigido "felse"
   });
   index++;
